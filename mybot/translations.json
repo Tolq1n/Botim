@@ -1,0 +1,48 @@
+{
+    "choose_language": {
+        "ru": "Выберите язык:",
+        "uz": "Tilni tanlang:",
+        "en": "Choose a language:"
+    },
+    "choose_action": {
+        "ru": "Выберите действие:",
+        "uz": "Harakatni tanlang:",
+        "en": "Choose an action:"
+    },
+    "choose_day_of_the_week":{
+        "ru":"Выберите день недели:",
+        "uz":"Hafta kunini tanlang:",
+        "en":"Choose a day of the week:"
+    },
+    "select_menu": {
+        "ru": "Пожалуйста, выберите опцию:",
+        "uz": "Quyidagilardan birini tanlang:",
+        "en": "Please choose an option:"
+    },
+    "change_lang": {
+        "ru":"Изменить язык",
+        "uz":"Tilni o'zgartirish",
+        "en":"Change the language"
+    },
+    "share": {
+        "ru":"✉️ Отправить",
+        "uz":"✉️ Yuborish",
+        "en":"✉️ Send"
+    },
+    "change_time": {
+        "ru":"Введите новое время.\n(Формат: ЧЧ:ММ)",
+        "uz":"Yangi vaqtni kiriting.\n(Format: HH:MM)",
+        "en":"Enter new time.\n(Format: HH:MM)"
+
+    },
+    "correct_time":{
+        "ru":"⚠️ Пожалуйста, введите действительный час",
+        "uz":"⚠️ Iltimos, yaroqli vaqt kiriting",
+        "en":"⚠️ Please, enter a valid hour"
+    },
+    "canceled":{
+        "ru":"❌ Отменено",
+        "uz":"❌ Bekor qilindi",
+        "en":"❌ Canceled"
+    }
+}
