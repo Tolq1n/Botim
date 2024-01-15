@@ -15,19 +15,19 @@ class WeekDayAdmin(TranslatableAdmin):
     list_display = ('name', 'id')
     fieldsets = (
         (None, {
-             'fields': ('id', 'name',),
+             'fields': ('name',),
         }),
     )
 admin.site.register(WeekDay, WeekDayAdmin)
 
 
-# class DayKindAdmin(TranslatableAdmin):
-#     list_display = ('name', 'id')
-#     fieldsets = (
-#         (None, {
-#              'fields': ('id', 'name',),
-#         }),
-#     )
-# admin.site.register(DayKind, DayKindAdmin)
+class DayKindAdmin(TranslatableAdmin):
+    list_display = ('name', 'id')
+    fieldsets = (
+        (None, {
+             'fields': ('name',),
+        }),
+    )
+admin.site.register(DayKind, DayKindAdmin)
 
-admin.site.register(DayKind)
+# admin.site.register(DayKind)
