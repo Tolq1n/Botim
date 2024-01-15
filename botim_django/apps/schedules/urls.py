@@ -7,16 +7,16 @@ from .views.schedules import ScheduleRetrieveDestroyAPIView, ScheduleUpdateAPIVi
 
 urlpatterns = [
     #week_day
-    path('week_days/<int:pk>', WeekDayRetrieveAPIView.as_view()),
-    path('week_days/list', WeekDayListAPIView.as_view()),
+    # path('week_days/<int:pk>', WeekDayRetrieveAPIView.as_view()),
+    # path('week_days/list', WeekDayListAPIView.as_view()),
 
     #day_kind
-    path('day_kind/<int:pk>', DayKindRetrieveAPIView.as_view()),
-    path('day_kind/list', DayKindListAPIView.as_view()),
+    # path('day_kind/<int:pk>', DayKindRetrieveAPIView.as_view()),
+    # path('day_kind/list', DayKindListAPIView.as_view()),
 
     #time config
     path('time-conf/<int:pk>', TimeConfigListAPIView.as_view()),
-    path('time-conf/update/<int:pk>', TimeConfigUpdateAPIView.as_view()),
+    path('time-conf/update/<int:user_id>', TimeConfigUpdateAPIView.as_view()),
 
     #schedule
     path('<int:pk>', ScheduleRetrieveDestroyAPIView.as_view()),

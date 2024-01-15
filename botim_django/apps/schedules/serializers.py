@@ -13,6 +13,11 @@ class TimeConfigSerializer(ModelSerializer):
           model = TimeConfig
           fields = '__all__'
 
+class TimeConfigUpdateSerializer(ModelSerializer):
+     class Meta:
+          model = TimeConfig
+          fields = ['time1', 'time2', 'time3', 'time4', 'time5', 'time6', 'time7']
+
 class GetWeekDaySerializer(TranslatableModelSerializer):
     class Meta:
         model = WeekDay

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView
 from ..models import TimeConfig
 from rest_framework.views import APIView
-from ..serializers import TimeConfigSerializer
+from ..serializers import TimeConfigSerializer, TimeConfigUpdateSerializer
 from rest_framework.response import Response
 
 class TimeConfigListAPIView(APIView):
@@ -15,6 +15,10 @@ class TimeConfigListAPIView(APIView):
 
 class TimeConfigUpdateAPIView(UpdateAPIView): 
     queryset = TimeConfig.objects.all()
-    serializer_class = TimeConfigSerializer
+    serializer_class = TimeConfigUpdateSerializer
+
+    lookup_field = 'user_id'
+
+
     
 

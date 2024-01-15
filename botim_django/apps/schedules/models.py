@@ -24,19 +24,20 @@ class DayKind(TranslatableModel):
 class Schedule(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     weekday = models.ForeignKey(WeekDay, on_delete=models.CASCADE, help_text="Hafta kunlari POST qilish uchun id sini yuborish kerak")
-    daykind = models.ForeignKey(DayKind, on_delete=models.CASCADE, help_text="Fanni har hafta, toq, juft, bo'sh qoldirish. id ")
-    subject = models.CharField(max_length=150, null=True, blank=True)
+    daykind = models.ForeignKey(DayKind, on_delete=models.CASCADE, help_text="Fanni har hafta, toq, juft, bo'sh qoldirish. POST qilish uchun id sini yuborish kerak")
+    subject = models.CharField(max_length=150)
     teacher = models.CharField(max_length=100, null=True, blank=True)
     lesson_type = models.CharField(max_length=100, null=True, blank=True)
     room = models.CharField(max_length=100, null=True, blank=True)
-    # order_number = models.IntegerField()
+    lesson_order = models.PositiveIntegerField()
+    is_empty = models.BooleanField(default=False)
     
     def __str__(self) -> str:
         return self.subject
     
     
 class TimeConfig(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     time1 = models.CharField(max_length=15, default="9:30-10:50")
     time2 = models.CharField(max_length=15, default="11:00-12:20")
     time3 = models.CharField(max_length=15, default="12:30-13:50")

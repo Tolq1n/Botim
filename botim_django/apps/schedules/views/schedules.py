@@ -5,11 +5,15 @@ from rest_framework.generics import RetrieveDestroyAPIView, CreateAPIView, Updat
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from ..schemas import list_schedule_schema
 
 class ScheduleListAPIView(APIView):
-    def get(self, request, *args, **kwargs):
-        data = request.data 
 
+    schema = list_schedule_schema
+    
+    def post(self, request, *args, **kwargs):
+        data = request.data 
+        print(data)
         weekday_id = data['weekday_id']
         user_id = data["user_id"]
         print(weekday_id, user_id)
