@@ -5,20 +5,20 @@ from rest_framework.views import APIView
 from ..serializers import TimeConfigSerializer, TimeConfigUpdateSerializer
 from rest_framework.response import Response
 
+
+
 class TimeConfigListAPIView(APIView):
     def get(self, request, pk, *args, **kwargs):
-        print(pk)
-        time_conf = TimeConfig.objects.filter(user_id=pk).first()
+        time_conf = TimeConfig.objects.filter(user=pk).first()
         serialized = TimeConfigSerializer(time_conf)
         return Response(serialized.data)
-    
 
-class TimeConfigUpdateAPIView(UpdateAPIView): 
+
+class TimeConfigUpdateAPIView(UpdateAPIView):
     queryset = TimeConfig.objects.all()
     serializer_class = TimeConfigUpdateSerializer
-
     lookup_field = 'user_id'
 
 
-    
+
 

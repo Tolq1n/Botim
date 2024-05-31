@@ -5,14 +5,14 @@ from rest_framework.generics import RetrieveDestroyAPIView, CreateAPIView, Updat
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from ..schemas import list_schedule_schema
+from ..schemas import list_schedule_schema, create_schedule_schema
 
 class ScheduleListAPIView(APIView):
 
     schema = list_schedule_schema
-    
+
     def post(self, request, *args, **kwargs):
-        data = request.data 
+        data = request.data
         print(data)
         weekday_id = data['weekday_id']
         user_id = data["user_id"]
@@ -36,6 +36,18 @@ class ScheduleUpdateAPIView(UpdateAPIView):
     http_method_names = ['patch']
 
 
-class ScheduleCreateAPIView(CreateAPIView):
-    queryset = Schedule.objects.all()
-    serializer_class = PostSchedulesSerializer
+class ScheduleCreateAPIView(APIView):
+    schema = create_schedule_schema
+    def post(self, request, *args, **kwargs):
+        data = request.data
+        if data['daykind'] == 2:
+            Schedule.objects.create(user_id=data['user'], weekday_id=data['weekday'], daykind_id=3, is_empty=True)
+        if data['daykind'] == 3:
+            Schedule.objects.create(user_id=data['user'], weekday_id=data['weekday'], daykind_id=2, is_empty=True)
+        if data['daykind'] == 4:
+            Schedule.objects.create(user_id=data['user'], weekday_id=data['weekday'], daykind_id=4, is_empty=True)
+            return Response({"detail":"success"})
+        serializer = PostSchedulesSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+        return Response({"detail":"success"})

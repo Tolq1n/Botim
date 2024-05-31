@@ -10,8 +10,8 @@ class User(models.Model):
     sending_time = models.TimeField(default='07:00')
     joined_at = models.DateTimeField(auto_now_add=True)
     language = models.CharField(max_length=4, default='ru')
-    username = models.CharField(max_length=50)
+    username = models.CharField(max_length=50, null=True, blank=True)
     mute = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return self.full_name if self.full_name is not None else self.username 
+        return self.full_name if self.full_name is not None else self.username

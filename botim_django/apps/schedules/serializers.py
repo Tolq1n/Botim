@@ -1,4 +1,4 @@
-#model 
+#model
 from .models import WeekDay, Schedule, DayKind, TimeConfig
 #rest_framework
 from rest_framework.serializers import ModelSerializer
@@ -27,7 +27,7 @@ class GetWeekDaySerializer(TranslatableModelSerializer):
             language = get_language_from_path(self.context['request'].path)
             instance.set_current_language(language)
             return super().to_representation(instance)
-        
+
 
 class GetDayKindSerializer(TranslatableModelSerializer):
     class Meta:
@@ -38,7 +38,7 @@ class GetDayKindSerializer(TranslatableModelSerializer):
             language = get_language_from_path(self.context['request'].path)
             instance.set_current_language(language)
             return super().to_representation(instance)
-    
+
 
 class GetSchedulesSerializer(ModelSerializer):
     weekday = GetWeekDaySerializer()
@@ -49,10 +49,10 @@ class GetSchedulesSerializer(ModelSerializer):
 
 
 class PostSchedulesSerializer(ModelSerializer):
-    # weekday = GetWeekDaySerializer(read_only=True)
-    # daykind = GetDayKindSerializer(read_only=True)
+    daykind = GetDayKindSerializer()
+    weekday = GetWeekDaySerializer()
     class Meta:
         model = Schedule
-        fields = '__all__'
-        
+        fields = ['user', 'weekday', 'daykind', 'subject', 'teacher', 'lesson_type', 'room']
+
 

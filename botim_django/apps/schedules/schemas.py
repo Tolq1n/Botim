@@ -21,3 +21,62 @@ list_schedule_schema = AutoSchema(manual_fields=[
     ),
 ])
 
+create_schedule_schema = AutoSchema(manual_fields=[
+    coreapi.Field(
+        name='user',
+        required=True,
+        description="Telegram ID",
+        type='int',
+        location='form',
+        schema=coreschema.Integer()
+    ),
+    coreapi.Field(
+        name='weekday',
+        required=True,
+        description="weekday ID",
+        type='int',
+        location='form',
+        schema=coreschema.Integer()
+    ),
+    coreapi.Field(
+        name='daykind',
+        required=True,
+        description="daykind ID",
+        type='int',
+        location='form',
+        schema=coreschema.Integer()
+    ),
+    coreapi.Field(
+        name='subject',
+        required=False,
+        description="subject",
+        type='str',
+        location='form',
+        schema=coreschema.String()
+    ),
+    coreapi.Field(
+        name='teacher',
+        required=False,
+        description="teacher",
+        type='str',
+        location='form',
+        schema=coreschema.String()
+    ),
+    coreapi.Field(
+        name='room',
+        required=False,
+        description="room",
+        type='str',
+        location='form',
+        schema=coreschema.String()
+    ),
+    coreapi.Field(
+        name='lesson_type',
+        required=False,
+        description="lesson_type",
+        type='str',
+        location='form',
+        schema=coreschema.String()
+    ),
+])
+

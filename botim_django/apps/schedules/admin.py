@@ -7,8 +7,8 @@ admin.site.register(TimeConfig)
 
 @admin.register(Schedule)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'weekday', 'daykind', 'subject', 'lesson_type', 'teacher', 'room']
-    list_display_links = ['id', 'user', 'weekday', 'daykind', 'subject', 'lesson_type', 'teacher', 'room']
+    list_display = ['id', 'user', 'weekday', 'daykind', 'is_empty', 'subject', 'lesson_type', 'teacher', 'room']
+    list_display_links = ['id', 'user', 'weekday', 'daykind', 'is_empty', 'subject', 'lesson_type', 'teacher', 'room']
 
 
 class WeekDayAdmin(TranslatableAdmin):
